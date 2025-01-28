@@ -8,12 +8,12 @@ todo:
 
 ## Setting up CGI Python with Nginx on Ubuntu Server
 
-clone this directory
+clone this repo
 ```bash
 git clone https://github.com/mostafahesari/comingsoon-CGI.git
 cd comingsoon-CGI
 ```
-the follow the steps.
+then follow the steps.
 ### 1. Install Required Packages
 ```bash
 sudo apt update
@@ -21,8 +21,6 @@ sudo apt install nginx python3 fcgiwrap
 ```
 
 ### 2. Configure Nginx
-
-Nginx configuration:
 
 Option1:
 
@@ -37,10 +35,9 @@ sudo ls -s /etc/nginx/sites-available/comingsoon /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl restart nginx
 ```
-
+or,
 Option2:
 
-Or,
 set it as your default Nginx config (I did it!) no further change needed( careful may cause conflict)
 
 ```bash
@@ -48,7 +45,6 @@ sudo cp ./comingsoon /etc/nginx/sites-available/default
 sudo nginx -t
 sudo systemctl restart nginx
    ```
-
 
 ### 3. Set Up CGI 
 
@@ -63,7 +59,6 @@ Python script:
 sudo cp subscribe.cgi /var/www/cgi-bin/
 sudo chmod +x /var/www/cgi-bin/subscribe.cgi
 ```
-
 
 Start fcgiwrap :
 ```bash
