@@ -28,7 +28,7 @@ Option1:
 
 change the server name/IP in the config regarding your IP/domain
 ```bash
-sudo cp ./comingsoon /etc/nginx/sites-available/comingsoon
+sudo cp ./comingsoon /etc/nginx/sites-available/
 sudo vim /etc/nginx/sites-available/comingsoon
 ```
 enable and test it
@@ -41,7 +41,7 @@ sudo systemctl restart nginx
 Option2:
 
 Or,
-set it as your default Nginx config (I did it!) no further change needed
+set it as your default Nginx config (I did it!) no further change needed( careful may cause conflict)
 
 ```bash
 sudo cp ./comingsoon /etc/nginx/sites-available/default
@@ -60,7 +60,7 @@ sudo chmod 755 /var/www/cgi-bin
 
 Python script:
 ```bash
-sudo cp subscribe.cgi /var/www/cgi-bin/subscribe.cgi
+sudo cp subscribe.cgi /var/www/cgi-bin/
 sudo chmod +x /var/www/cgi-bin/subscribe.cgi
 ```
 
@@ -79,9 +79,5 @@ sudo touch /var/www/comingsoon/emails.txt /var/www/comingsoon/ips.txt
 sudo chmod 666 /var/www/comingsoon/emails.txt /var/www/comingsoon/ips.txt
 ```
 
-
-Test script in a web browser:
-```
-http://your_domain.com/
-```
+Test it in a web browser 
 
