@@ -5,7 +5,7 @@ todo:
 - [ ] using databse instead of writing to file
 - [ ] sending subscription email 
 - [ ] considering security!
-- [ ] use env var istead of hardcode config
+- [ ] use env variables instead of hardcode config
 - [ ] setup_comingsoon.sh mysite.com
 
 ## Setting up CGI Python with Nginx on Ubuntu Server
