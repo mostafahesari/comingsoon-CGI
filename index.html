@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <script src="https://unpkg.com/htmx.org@1.9.0"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            color: #e0e0e0;
+        }
+        .container {
+            text-align: center;
+            background: rgba(30, 30, 30, 0.8);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            position: relative;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .subscribe-form {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .subscribe-form input {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+        }
+        .subscribe-form button {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            background-color: #3700B3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .subscribe-form button:hover {
+            background-color: #5600E8;
+        }
+        #response {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        .success { color: #4CAF50; }
+        .error { color: #F44336; }
+
+        /* Snow effect */
+        .snowflakes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .snowflake {
+            position: absolute;
+            color: #fff;
+            font-size: 1em;
+            font-family: Arial, sans-serif;
+            text-shadow: 0 0 5px #000;
+        }
+        @keyframes snowfall {
+            0% {
+                transform: translate3d(var(--left-ini), 0, 0);
+            }
+            100% {
+                transform: translate3d(var(--left-end), 110vh, 0);
+            }
+        }
+        @keyframes snowflake-opacity {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+        .snowflake:nth-child(1) { --left-ini: -8vw; --left-end: 3vw; left: 63vw; animation: snowfall 11s linear infinite, snowflake-opacity 5s ease-in-out infinite; animation-delay: -9s; }
+        .snowflake:nth-child(2) { --left-ini: 7vw; --left-end: -3vw; left: 17vw; animation: snowfall 15s linear infinite, snowflake-opacity 6s ease-in-out infinite; animation-delay: -1s; }
+        .snowflake:nth-child(3) { --left-ini: -5vw; --left-end: 8vw; left: 84vw; animation: snowfall 13s linear infinite, snowflake-opacity 4s ease-in-out infinite; animation-delay: -7s; }
+        .snowflake:nth-child(4) { --left-ini: 3vw; --left-end: -6vw; left: 37vw; animation: snowfall 17s linear infinite, snowflake-opacity 7s ease-in-out infinite; animation-delay: -4s; }
+        .snowflake:nth-child(5) { --left-ini: -2vw; --left-end: 5vw; left: 51vw; animation: snowfall 12s linear infinite, snowflake-opacity 5s ease-in-out infinite; animation-delay: -2s; }
+        .snowflake:nth-child(6) { --left-ini: 6vw; --left-end: -4vw; left: 73vw; animation: snowfall 16s linear infinite, snowflake-opacity 6s ease-in-out infinite; animation-delay: -8s; }
+        .snowflake:nth-child(7) { --left-ini: -7vw; --left-end: 2vw; left: 29vw; animation: snowfall 14s linear infinite, snowflake-opacity 4s ease-in-out infinite; animation-delay: -5s; }
+        .snowflake:nth-child(8) { --left-ini: 4vw; --left-end: -7vw; left: 92vw; animation: snowfall 18s linear infinite, snowflake-opacity 7s ease-in-out infinite; animation-delay: -3s; }
+    </style>
+</head>
+<body>
+    <div class="snowflakes" aria-hidden="true">
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+    </div>
+
+    <div class="container">
+        <h1>Coming Soon</h1>
+        <p>We're working on something awesome! Stay tuned.</p>
+        <form class="subscribe-form" hx-post="/cgi-bin/subscribe.cgi" hx-target="#response" hx-swap="innerHTML">
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <button type="submit" hx-indicator="#spinner">
+                Notify Me
+                <img id="spinner" class="htmx-indicator" src="https://htmx.org/img/bars.svg" style="width: 20px; display: none;" />
+            </button>
+        </form>
+        <div id="response"></div>
+    </div>
+</body>
+</html>

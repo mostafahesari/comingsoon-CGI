@@ -1,0 +1,21 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /var/www/comingsoon;
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name _;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+
+	location /cgi-bin/ {
+		root /var/www;
+		include fastcgi_params;
+		fastcgi_pass unix:/var/run/fcgiwrap.socket;
+		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+	}
+}
+
