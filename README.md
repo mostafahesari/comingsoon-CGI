@@ -78,3 +78,5 @@ sudo chmod 666 /var/www/comingsoon/emails.txt /var/www/comingsoon/ips.txt
 
 Test it in a web browser 
 
+Feel free to use, or even better make changes to this repo
+
