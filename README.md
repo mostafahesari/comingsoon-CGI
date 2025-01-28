@@ -4,14 +4,14 @@ todo:
 - [ ] using databse instead of writing to file
 - [ ] sending subscription email 
 - [ ] considering security!
-- [ ] 
+- [ ] use env var istead of hardcode config
 
 ## Setting up CGI Python with Nginx on Ubuntu Server
 
 clone this directory
 ```bash
 git clone https://github.com/mostafahesari/comingsoon-CGI.git
-cd comingsoon-CGI.git
+cd comingsoon-CGI
 ```
 the follow the steps.
 ### 1. Install Required Packages
@@ -23,6 +23,9 @@ sudo apt install nginx python3 fcgiwrap
 ### 2. Configure Nginx
 
 Nginx configuration:
+
+Option1:
+
 change the server name/IP in the config regarding your IP/domain
 ```bash
 sudo cp ./comingsoon /etc/nginx/sites-available/comingsoon
@@ -34,6 +37,8 @@ sudo ls -s /etc/nginx/sites-available/comingsoon /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl restart nginx
 ```
+
+Option2:
 
 Or,
 set it as your default Nginx config (I did it!) no further change needed
